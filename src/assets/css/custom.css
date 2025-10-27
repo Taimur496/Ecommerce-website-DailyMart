@@ -1,0 +1,282 @@
+@import "admindashboard.css";
+@import "header.css";
+@import "navbar.css";
+@import "skeleton.css";
+@import "orderSuccess.css";
+@import "sidebar.css";
+@import "button.css";
+@import "card.css";
+@import "footer.css";
+@import "uppermenu.css";
+@import "cart.css";
+@import "homeslider.css";
+@import "featureproduct.css";
+@import "newarrival.css";
+@import "productcollection.css";
+@import "categories.css";
+@import "wishlist.css";
+@import "notfound.css";
+
+@import "productDetails.css";
+@import "cartList.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.icon_border {
+  border: 1px solid rgb(13, 110, 253);
+  color: rgb(13, 110, 253);
+  padding: 4px 8px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.icon_border:hover {
+  color: #fff;
+  background: rgb(13, 110, 253);
+}
+
+@media (max-width: 768px) {
+  .Desktopfooter {
+    display: none;
+  }
+
+  .Mobilefooter {
+    display: block !important;
+  }
+}
+
+/* Enhanced Notification Bell Styles */
+.notification-bell {
+  transition: all 0.3s ease;
+}
+
+.notification-bell:hover {
+  transform: scale(1.1);
+}
+
+/* notification bell design */
+.notification-bell:hover .fa-bell {
+  animation: bellShake 0.6s ease-in-out;
+  color: #dc3545 !important;
+}
+
+@keyframes bellShake {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Clean notification badge - positioned closer to bell */
+.notification-badge {
+  background: #dc3545;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  line-height: 1;
+  animation: gentlePulse 3s ease-in-out infinite;
+  top: -2px;
+  right: -2px;
+  transform: none;
+}
+
+@keyframes gentlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.notification-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.notification-bell:hover .notification-ring {
+  border-color: rgba(220, 53, 69, 0.3);
+  animation: ringPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Glowing effect */
+.notification-bell:hover {
+  filter: drop-shadow(0 0 8px rgba(220, 53, 69, 0.3));
+}
+
+/* contact-with-us button design */
+
+.custom-submit-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom_contact_border,
+.custom_contact_border:hover {
+  border-radius: 8px !important;
+}
+
+.form-control-lg::placeholder {
+  font-size: 17px;
+}
+
+.form-control {
+  /* font-weight: 500 !important; */
+  /* border-radius: 10px; */
+  font-size: 17px !important;
+  line-height: 20px;
+}
+
+/* Default state - Primary */
+.custom-submit-btn.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.custom-submit-btn.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5169dd 0%, #6a4190 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Submitting state - Secondary */
+.custom-submit-btn.btn-secondary {
+  background: #6c757d !important;
+  color: white !important;
+}
+
+/* Success state - Success */
+.custom-submit-btn.btn-success {
+  background: #198754 !important;
+  color: white !important;
+}
+
+.custom-submit-btn.btn-success:hover {
+  background: #157347 !important;
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+}
+
+/* Disabled state */
+.custom-submit-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Focus states */
+.custom-submit-btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25) !important;
+  outline: none !important;
+}
+
+.custom-submit-btn.btn-success:focus {
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+}
+
+@media (max-width: 768px) {
+  .onboardImg {
+    margin-top: 24px;
+  }
+}
+
+.custom-choose-file {
+  background-color: #e9ecef;
+  /* background-color: #b6f6ff; */
+  padding: 0 20px;
+}
+.vr {
+  /* border-left: 1px solid #b5b6b6; */
+  border-left: 1px solid #7d7d7d;
+  height: 30px;
+}
+
+.min-vh-shoppage {
+  min-height: 80vh;
+}
+@media (max-width: 992px) {
+  .custom-profile-dispaly {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .admin-profile-width {
+    width: 100%;
+  }
+
+  .custom-profile-dispaly .admin-profile-width:nth-child(2) {
+    margin-top: 16px;
+  }
+}
+
+.custom-toggle-button {
+  margin-bottom: 2px;
+}
+
+.checkout-shopping-custom-padding {
+  padding: 10px 15px 10px 30px;
+}
+
+.slider-dropdown-menu {
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 8px 0 !important;
+  transition: all 0.3s ease;
+  /* Add these properties to remove scrollbar */
+  overflow: hidden;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* For Webkit browsers (Chrome, Safari, Opera) */
+.slider-dropdown-menu::-webkit-scrollbar {
+  display: none;
+}

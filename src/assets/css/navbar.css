@@ -1,0 +1,262 @@
+/* Navbar Styling */
+.navbar {
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+  transition: all 0.3s ease;
+}
+
+/* Body padding to account for fixed elements */
+
+@media (min-width: 1001px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Offcanvas styling */
+.offcanvas {
+  max-width: 280px;
+}
+
+.offcanvas-header {
+  padding: 10px 1.25rem;
+}
+
+.offcanvas-body {
+  padding: 1rem 1.25rem;
+}
+
+/* Bottom fixed menu styling */
+.fixed-bottom {
+  z-index: 1020;
+  padding: 8px 0 0 0;
+}
+
+/* Badge styling */
+.badge {
+  font-size: 0.65rem;
+  padding: 0.25em 0.4em;
+}
+
+/* Hover effects */
+.nav-link:hover,
+.dropdown-item:hover,
+.btn-link:hover {
+  color: var(--bs-primary) !important;
+}
+
+/* Active link styling */
+.nav-link.active {
+  font-weight: 600;
+  color: var(--bs-primary) !important;
+}
+
+/* Mobile search transition */
+.navbar .input-group {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .custom-z-index {
+    z-index: 1050;
+  }
+
+  .navbar-toggler {
+    padding: 0.5rem;
+  }
+
+  .navbar-collapse {
+    background-color: white;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 13px;
+    transition: all 0.3s ease;
+  }
+  .logo-img {
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 10px 0;
+    transition: all 0.3s ease;
+  }
+  .logo-img {
+    height: 30px;
+  }
+}
+
+/* Make sure content isn't hidden behind fixed elements */
+@media (max-width: 1000px) {
+  main {
+    margin-bottom: 60px;
+  }
+}
+
+/* Button focus removal */
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+}
+
+/* Dropdown menu animation */
+.dropdown-menu {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .custom_bar {
+    display: flex !important;
+  }
+  .custom_search {
+    display: flex !important;
+  }
+}
+
+.custom_radius {
+  border-radius: 0 5px 5px 0 !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.custom_font {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #43474c;
+}
+
+.custom_nav_menu {
+  border: none;
+  color: white;
+  font-size: 20px;
+  border-radius: 4px !important;
+}
+.custom_padding {
+  padding: 2px 6px 4px 6px !important;
+}
+.mega-menu-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0d6efd;
+  color: white;
+  padding: 14px 20px;
+  font-weight: 600;
+}
+.mega-menu-header h5 {
+  font-size: 18px;
+}
+.mega-menu-header .cursor-pointer {
+  cursor: pointer;
+}
+.mega-menu-header:hover {
+  background: #005eeb;
+}
+
+.custom-offcanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1060;
+  pointer-events: none;
+  overflow-y: auto; /* enable vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.custom-offcanvas.show {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Profile Button */
+.navbar-profile-btn {
+  background: rgba(248, 250, 252, 0.8);
+  border: 2px solid #5599ff;
+  border-radius: 16px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-profile-btn:hover {
+  background: white;
+  /* border-color: #667eea; */
+  border-color: #0d6efd;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profile-btn-hover:hover {
+  color: #4a92ff;
+}
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar-brand img {
+    height: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .navbar-brand img {
+    height: 26px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .navbar-brand img {
+    height: 22px;
+  }
+}
