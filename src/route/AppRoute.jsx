@@ -44,7 +44,7 @@ import UserProfile from "../components/common/UserProfile";
 import ShippingManagement from "../admin/shipping/ShippingManagement";
 import CouponManagement from "../admin/coupon/CouponManagement ";
 import Wishlist from "../components/Favourite/Wishlist";
-import SliderCreate from "../admin-components/slider/create";
+import SliderCreate from "../admin-components/slider/Create";
 import SliderShow from "../admin-components/slider/Show";
 import SliderEdit from "../admin-components/slider/Edit";
 import NotFound from "../pages/NotFound";
