@@ -129,7 +129,7 @@ const NewArrival = () => {
     <div>
       {loading ? (
         <SkeletonDemo />
-      ) : products.length > 0 ? (
+      ) : (
         <div className="new-arrival-section">
           <Toaster
             position="top-center"
@@ -248,8 +248,6 @@ const NewArrival = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <div> No products found </div>
       )}
       <AddToCartModal
         show={showModal}
