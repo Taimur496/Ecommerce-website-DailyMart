@@ -192,129 +192,121 @@ const FeaturedProducts = () => {
             </div>
 
             <div className="row">
-              {products.length ? (
-                products.map((product, index) => (
-                  <div
-                    key={index}
-                    className="col-6 col-sm-4 col-md-3 custom-feature"
-                    style={{ padding: "6px" }}
-                  >
-                    <div className="product-card">
+              {products.map((product, index) => (
+                <div
+                  key={index}
+                  className="col-6 col-sm-4 col-md-3 custom-feature"
+                  style={{ padding: "6px" }}
+                >
+                  <div className="product-card">
+                    <Link
+                      to={`/productdetails?id=${product.id}`}
+                      className="text-decoration-none"
+                    >
+                      <div className="">
+                        <img
+                          src={product.main_img}
+                          alt={product.product_name}
+                          className="feature-product-image"
+                        />
+                      </div>
+
+                      <div
+                        className={`discount-badge ${
+                          !calculateDiscount(
+                            product.selling_price,
+                            product.discount_price
+                          )
+                            ? "original-badge"
+                            : ""
+                        }`}
+                      >
+                        {calculateDiscount(
+                          product.selling_price,
+                          product.discount_price
+                        ) || "New"}
+                      </div>
+                    </Link>
+
+                    <button
+                      onClick={(e) => toggleWishlist(e, product)}
+                      className="favorite-btn"
+                      disabled={wishlistLoadingMap[product.id]}
+                    >
+                      <Heart
+                        size={16}
+                        color={
+                          wishlisted.includes(product.id)
+                            ? "#ef4444"
+                            : "#64748b"
+                        }
+                        fill={
+                          wishlisted.includes(product.id) ? "#ef4444" : "none"
+                        }
+                      />
+                    </button>
+                    <div className="product-details">
                       <Link
                         to={`/productdetails?id=${product.id}`}
                         className="text-decoration-none"
                       >
-                        <div className="">
-                          <img
-                            src={product.main_img}
-                            alt={product.product_name}
-                            className="feature-product-image"
-                          />
+                        <h5 className="product-name">{product.product_name}</h5>
+
+                        <div className="price-section">
+                          {product.selling_price && product.discount_price ? (
+                            <div>
+                              <span className="old-price me-2">
+                                ${product.selling_price}
+                              </span>
+                              <span className="current-price">
+                                ${product.discount_price}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="current-price">
+                              ${product.discount_price || product.selling_price}
+                            </span>
+                          )}
                         </div>
 
-                        <div
-                          className={`discount-badge ${
-                            !calculateDiscount(
-                              product.selling_price,
-                              product.discount_price
-                            )
-                              ? "original-badge"
-                              : ""
-                          }`}
-                        >
-                          {calculateDiscount(
-                            product.selling_price,
-                            product.discount_price
-                          ) || "New"}
+                        <div className="product-rating">
+                          <div className="stars">
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                size={12}
+                                fill={
+                                  i < Math.floor(product.rating)
+                                    ? "#fbbf24"
+                                    : "none"
+                                }
+                                color="#fbbf24"
+                              />
+                            ))}
+                          </div>
+                          <span className="rating-text">
+                            {product.rating} ({product.reviews})
+                          </span>
                         </div>
                       </Link>
 
-                      <button
-                        onClick={(e) => toggleWishlist(e, product)}
-                        className="favorite-btn"
-                        disabled={wishlistLoadingMap[product.id]}
-                      >
-                        <Heart
-                          size={16}
-                          color={
-                            wishlisted.includes(product.id)
-                              ? "#ef4444"
-                              : "#64748b"
-                          }
-                          fill={
-                            wishlisted.includes(product.id) ? "#ef4444" : "none"
-                          }
-                        />
-                      </button>
-                      <div className="product-details">
-                        <Link
-                          to={`/productdetails?id=${product.id}`}
-                          className="text-decoration-none"
+                      <div className="action-buttons">
+                        <button
+                          onClick={() => handleAddToCart(product)}
+                          className={`add-to-cart-btn ${
+                            isProductInCart(product.id) ? "added" : ""
+                          }`}
                         >
-                          <h5 className="product-name">
-                            {product.product_name}
-                          </h5>
-
-                          <div className="price-section">
-                            {product.selling_price && product.discount_price ? (
-                              <div>
-                                <span className="old-price me-2">
-                                  ${product.selling_price}
-                                </span>
-                                <span className="current-price">
-                                  ${product.discount_price}
-                                </span>
-                              </div>
-                            ) : (
-                              <span className="current-price">
-                                $
-                                {product.discount_price ||
-                                  product.selling_price}
-                              </span>
-                            )}
-                          </div>
-
-                          <div className="product-rating">
-                            <div className="stars">
-                              {[...Array(5)].map((_, i) => (
-                                <Star
-                                  key={i}
-                                  size={12}
-                                  fill={
-                                    i < Math.floor(product.rating)
-                                      ? "#fbbf24"
-                                      : "none"
-                                  }
-                                  color="#fbbf24"
-                                />
-                              ))}
-                            </div>
-                            <span className="rating-text">
-                              {product.rating} ({product.reviews})
-                            </span>
-                          </div>
-                        </Link>
-
-                        <div className="action-buttons">
-                          <button
-                            onClick={() => handleAddToCart(product)}
-                            className={`add-to-cart-btn ${
-                              isProductInCart(product.id) ? "added" : ""
-                            }`}
-                          >
-                            <ShoppingCart size={14} />
-                            {isProductInCart(product.id)
-                              ? "Added!"
-                              : "Add to Cart"}
-                          </button>
-                        </div>
+                          <ShoppingCart size={14} />
+                          {isProductInCart(product.id)
+                            ? "Added!"
+                            : "Add to Cart"}
+                        </button>
                       </div>
                     </div>
                   </div>
-                ))
-              ) : (
-                <p>No Products Found!</p>
-              )}
+                </div>
+              ))}
             </div>
           </div>
 
